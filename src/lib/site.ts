@@ -4,8 +4,8 @@ import legacy from '@/data/legacy-pages.json';
 const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://theluxevaulthk.com';
 const parsedUrl = new URL(configuredUrl);
 if (!['http:', 'https:'].includes(parsedUrl.protocol) || parsedUrl.pathname !== '/' || parsedUrl.search || parsedUrl.hash) throw new Error('NEXT_PUBLIC_SITE_URL must be an HTTP(S) origin without a path, query or fragment.');
-export const site = { name:'The Luxe Vault', shortName:'The Luxe Vault', url:parsedUrl.origin, indexable:process.env.SITE_NOINDEX !== 'true', phone:(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '85262239870').replace(/\D/g,'') };
-export const whatsapp = (message='你好 The Luxe Vault，我想查詢名牌手袋估價服務。') => `https://wa.me/${site.phone}?text=${encodeURIComponent(message)}`;
+export const site = { name:'The Luxe Vault', shortName:'The Luxe Vault', url:parsedUrl.origin, indexable:process.env.SITE_NOINDEX !== 'true', phone:'85262239870'};
+export const whatsapp = (message='你好 The Luxe Vault，我想查詢名牌手袋估價服務。') => `https://wa.me/85262239870?text=${encodeURIComponent(message)}`;
 export const navItems = [{href:'/brands',label:'收購品牌'},{href:'/takeoverauth',label:'收購及鑑定'},{href:'/howtosell',label:'如何出售'},{href:'/case',label:'交易案例'},{href:'/blogs',label:'部落格'},{href:'/faq',label:'常見問題'}];
 export function pageMeta(title:string, description:string, path:string):Metadata {
  const isBrand = path.startsWith('/brands/') && path !== '/brands';
